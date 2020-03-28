@@ -4,6 +4,7 @@ import Background from "./Components/Background";
 import Content from "./Components/Content";
 import { FirebaseProvider } from "./context";
 import FirebaseExample from "./Components/FirebaseExample";
+import BestSeller from './Components/BestSeller'
 import GenreList from "./Components/GenreList";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Content>
             <GenreList />
             <FirebaseExample />
+            <BestSeller />
           </Content>
         </div>
       </FirebaseProvider>
@@ -26,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
