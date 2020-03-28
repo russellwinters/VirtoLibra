@@ -8,9 +8,6 @@ const GenreListStyle = styled.div`
   width: 25vw;
   height: 80vh;
   border-radius: 25px;
-  background-color: ${highlight};
-  text-align: center;
-  padding: 10px;
 `;
 
 export default function GenreList() {
@@ -22,10 +19,17 @@ export default function GenreList() {
   if (loading) {
     return <div>...loading</div>;
   }
-  console.log("inside GenreList", data);
-  return (
-    <GenreListStyle>
-      <Button> </Button>
-    </GenreListStyle>
-  );
+
+  if (data !== null) {
+    console.log("inside GenreList", data);
+    return (
+      <GenreListStyle>
+        {data.map(item => (
+          <Button key={item.list_id}> {item.list_name}</Button>
+        ))}
+      </GenreListStyle>
+    );
+  }
+
+  return <h1>Loading</h1>;
 }
