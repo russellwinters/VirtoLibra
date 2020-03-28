@@ -32,16 +32,17 @@ const RoomList = () => {
 
   return (
     <ul>
-      {rooms.map(({id}) => (
-        <li key={id}>
+      {rooms.map(({ id }) => (
+        <ReviewsListItem key={id}>
           Room: {id}
           <MessageList id={id} />
-        </li>
+        </ReviewsListItem>
       ))}
     </ul>
   )
 }
 
 const FirebaseExample = () => <RoomList />
+
 
 export default FirebaseExample
