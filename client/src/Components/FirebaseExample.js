@@ -1,5 +1,6 @@
 import React from 'react'
 import {useRoom, useRooms} from '../hooks'
+import ReviewsListItem from './ReviewsListItem'
 
 const MessageList = ({id}) => {
   const messages = useRoom(id)
@@ -32,7 +33,7 @@ const RoomList = () => {
 
   return (
     <ul>
-      {rooms.map(({ id }) => (
+      {rooms.map(({id}) => (
         <ReviewsListItem key={id}>
           Room: {id}
           <MessageList id={id} />
@@ -43,6 +44,5 @@ const RoomList = () => {
 }
 
 const FirebaseExample = () => <RoomList />
-
 
 export default FirebaseExample
