@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export default function Header() {
   return (
     <header>
-      <h3>VirtoLobra</h3>
+      <h3>VirtoLibra</h3>
     </header>
-  );
+  )
 }

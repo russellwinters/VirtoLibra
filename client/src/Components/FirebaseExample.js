@@ -1,28 +1,34 @@
-import React from "react";
-import {useRoom, useRooms} from '../hooks';
+import React from 'react'
+import {useRoom, useRooms} from '../hooks'
 
 const MessageList = ({id}) => {
-  const messages = useRoom(id);
+  const messages = useRoom(id)
 
-  if (!messages) return <p>loading messages...</p>;
+  if (!messages) return <p>loading messages...</p>
 
   return (
     <ul>
-      {messages.map(({id, message, author, book_title, book_author}) => (
-        <li key={id}>
-          <p>{book_title} by {book_author}</p>
+      {messages.map(
+        ({id, message, author, book_title, book_author}) => (
+          <li key={id}>
+            <p>
+              {book_title} by {book_author}
+            </p>
 
-          <p>{author}: {message} </p>
-        </li>
-      ))}
+            <p>
+              {author}: {message}{' '}
+            </p>
+          </li>
+        ),
+      )}
     </ul>
-  );
+  )
 }
 
 const RoomList = () => {
-  const rooms = useRooms();
+  const rooms = useRooms()
 
-  if (!rooms) return <p>loading rooms...</p>;
+  if (!rooms) return <p>loading rooms...</p>
 
   return (
     <ul>
@@ -33,9 +39,9 @@ const RoomList = () => {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
-const FirebaseExample = () => (<RoomList/>);
+const FirebaseExample = () => <RoomList />
 
-export default FirebaseExample;
+export default FirebaseExample
