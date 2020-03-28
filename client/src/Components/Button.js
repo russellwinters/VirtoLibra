@@ -1,12 +1,15 @@
 import { bg } from "../Styles/colors";
 import styled from "styled-components";
+import React from "react";
 
-const Button = styled.button`
+const ButtonStyle = styled.button`
   width: 20vw;
   background-color: ${bg};
-  height: 20px;
+  height: 50px;
   border-radius: 25px;
   padding: 5px;
   margin-bottom: 10px;
 `;
-export default Button;
+export default function Button() {
+  return <ButtonStyle></ButtonStyle>;
+}
