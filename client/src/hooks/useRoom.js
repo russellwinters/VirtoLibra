@@ -2,7 +2,7 @@ import {useContext, useState, useEffect} from "react";
 import {FirebaseContext} from "../context/firebase";
 
 export const useRoom = id => {
-  const db = useContext(FirebaseContext);
+  const {db} = useContext(FirebaseContext);
   const [messages, setMessages] = useState();
 
   useEffect(() => {
