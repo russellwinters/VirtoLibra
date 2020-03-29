@@ -1,11 +1,12 @@
-import React, {useState} from "react";
-import {useAuth} from "../hooks";
+import React, { useState } from "react";
+import { useAuth } from "../hooks";
+import { Redirect } from "react-router-dom";
 
 const AuthForm = () => {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
-  const {user, loading, error, signIn, signUp, logOut} = useAuth();
+  const { user, loading, error, signIn, signUp, logOut } = useAuth();
 
   const toggleIsSignUp = () => setIsSignUp(s => !s);
 
@@ -14,20 +15,20 @@ const AuthForm = () => {
 
     isSignUp
       ? signUp(emailInput, passwordInput)
-      : signIn(emailInput, passwordInput)
+      : signIn(emailInput, passwordInput);
 
-    setEmailInput('');
-    setPasswordInput('');
+    setEmailInput("");
+    setPasswordInput("");
   };
 
   const handleChange = e => {
     const inputVal = e.target.value;
 
     switch (e.target.name) {
-      case ('email'):
+      case "email":
         setEmailInput(inputVal);
         break;
-      case ('password'):
+      case "password":
         setPasswordInput(inputVal);
         break;
       default:
@@ -35,21 +36,19 @@ const AuthForm = () => {
     }
   };
 
-  if (error) return (
-    <p>Something went wrong. Please refresh the page to try again...</p>
-  );
+  if (error)
+    return <p>Something went wrong. Please refresh the page to try again...</p>;
 
-  if (loading) return (<p>Authenticating...</p>);
+  if (loading) return <p>Authenticating...</p>;
 
-  if (user) return (
-    <>
-      <p>Logged in as: {user.email}</p>
-      <p>
-        Not you?
-        <button type="button" onClick={logOut}>Log out</button>
-      </p>
-    </>
-  );
+  if (user) {
+    localStorage.setItem("email", user.email);
+    return (
+      <>
+        <Redirect to="/dashboard" />
+      </>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -74,9 +73,7 @@ const AuthForm = () => {
         />
       </label>
 
-      <button type="submit">
-        {isSignUp ? 'Sign up' : 'Log in'}
-      </button>
+      <button type="submit">{isSignUp ? "Sign up" : "Log in"}</button>
 
       <button onClick={toggleIsSignUp} type="button">
         {isSignUp ? "Already have an account?" : "Don't have an account?"}
