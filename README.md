@@ -2,12 +2,16 @@
 
 Initial plan is to make a slack-style platform to engage with the reading community around you.
 
+### Tech Stack
+
+For this project we're using React and storing all necessary information in Firebase.
+Our workflow is organized through Trello and Slack
+
 ### Setup:
 
 - Clone into repo
 - Navigate to client folder and run `npm i`
-- Navigate back to root directory and run `npm i` in the terminal.
-- Once all dependencies have been installed the script `npm run dev` will run both server and client together.
+- Run `npm start` to open react app.
 
 ### Designer(s):
 
@@ -16,15 +20,10 @@ Initial plan is to make a slack-style platform to engage with the reading commun
 ### Front-End:
 
 - Lizzy Swann
-- Russell (If necessary)
-
-### Back-End:
-
 - Russell
+- William L
+- Roerto
 
 ### TBD:
 
-- Roberto
-- William L
 - Edin Kaymakqi
-- Tejaswini

@@ -9,6 +9,7 @@ const MessageList = ({id}) => {
 
   return (
     <ul>
+
       {messages.map(
         ({id, message, author, book_title, book_author}) => (
           <li key={id}>
@@ -33,6 +34,7 @@ const RoomList = () => {
 
   return (
     <ul>
+
       {rooms.map(({id}) => (
         <ReviewsListItem key={id}>
           Room: {id}
@@ -40,9 +42,11 @@ const RoomList = () => {
         </ReviewsListItem>
       ))}
     </ul>
+
   )
 }
 
 const FirebaseExample = () => <RoomList />
+
 
 export default FirebaseExample
