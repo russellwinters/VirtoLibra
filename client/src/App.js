@@ -6,11 +6,13 @@ import { FirebaseProvider } from "./context";
 import FirebaseExample from "./Components/FirebaseExample";
 import BestSeller from './Components/BestSeller'
 import GenreList from "./Components/GenreList";
+import AuthForm from "./Components/AuthForm";
 
 function App() {
   return (
     <Background>
       <FirebaseProvider>
+        <AuthForm />
         <link
           href="https://fonts.googleapis.com/css?family=Lato&display=swap"
           rel="stylesheet"
