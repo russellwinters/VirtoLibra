@@ -1,8 +1,8 @@
-import {useContext, useState} from "react";
-import {FirebaseContext} from "../context/firebase";
+import { useContext, useState } from "react";
+import { FirebaseContext } from "../context/firebase";
 
 export const useAuth = () => {
-  const {auth} = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState();
   const [error, setError] = useState();
@@ -11,7 +11,7 @@ export const useAuth = () => {
     setLoading(true);
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(({user}) => setUser(user))
+      .then(({ user }) => setUser(user))
       .catch(setError)
       .finally(() => setLoading(false));
   };
@@ -20,7 +20,7 @@ export const useAuth = () => {
     setLoading(true);
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(({user}) => setUser(user))
+      .then(({ user }) => setUser(user))
       .catch(setError)
       .finally(() => setLoading(false));
   };
@@ -28,6 +28,8 @@ export const useAuth = () => {
   const logOut = () => {
     auth.signOut();
     setUser(null);
+    localStorage.removeItem("email");
+    window.location.reload();
   };
 
   return {
@@ -36,7 +38,6 @@ export const useAuth = () => {
     loading,
     signUp: signUpWithEmailAndPassword,
     signIn: signInWithEmailAndPassword,
-    logOut,
+    logOut
   };
 };
-
