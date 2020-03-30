@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Background from "./Components/Background";
 import Content from "./Components/Content";
 import { FirebaseProvider } from "./context";
-import FirebaseExample from "./Components/FirebaseExample";
+// import FirebaseExample from "./Components/FirebaseExample";
 import BestSeller from "./Components/BestSeller";
 import GenreList from "./Components/GenreList";
 import AuthForm from "./Components/AuthForm";
@@ -15,10 +15,6 @@ function App() {
     <Router>
       <Background>
         <FirebaseProvider>
-          {/* <link
-            href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-            rel="stylesheet"
-          ></link> */}
           <Header />
           <Switch>
             <Route exact path="/" component={AuthForm} />
@@ -31,7 +27,6 @@ function App() {
                     <AuthBoundary>
                       <Content>
                         <GenreList />
-                        <FirebaseExample />
                         <BestSeller match={match} />
                       </Content>
                     </AuthBoundary>
@@ -47,7 +42,7 @@ function App() {
                     <AuthBoundary>
                       <Content>
                         <GenreList />
-                        <FirebaseExample />
+
                         <BestSeller match={match} />
                       </Content>
                     </AuthBoundary>
