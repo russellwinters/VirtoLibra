@@ -24,14 +24,15 @@ function App() {
             <Route exact path="/" component={AuthForm} />
             <Route
               path="/dashboard"
-              render={props => {
+              exact
+              render={({ match }) => {
                 return (
                   <div className="App">
                     <AuthBoundary>
                       <Content>
                         <GenreList />
                         <FirebaseExample />
-                        <BestSeller />
+                        <BestSeller match={match} />
                       </Content>
                     </AuthBoundary>
                   </div>
@@ -40,14 +41,14 @@ function App() {
             />
             <Route
               path="/dashboard/:genre"
-              render={props => {
+              render={({ match }) => {
                 return (
                   <div className="App">
                     <AuthBoundary>
                       <Content>
                         <GenreList />
                         <FirebaseExample />
-                        <BestSeller />
+                        <BestSeller match={match} />
                       </Content>
                     </AuthBoundary>
                   </div>
