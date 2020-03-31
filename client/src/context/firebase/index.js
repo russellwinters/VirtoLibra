@@ -1,4 +1,4 @@
-import React, {createContext} from "react";
+import React, {createContext, useState} from "react";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
@@ -10,8 +10,12 @@ const auth = firebase.auth();
 
 export const FirebaseContext = createContext(null);
 
-export const FirebaseProvider = ({children}) => (
-  <FirebaseContext.Provider value={{db, auth}}>
-    {children}
-  </FirebaseContext.Provider>
-);
+export const FirebaseProvider = ({children}) => {
+  const [user, setUser] = useState();
+
+  return (
+    <FirebaseContext.Provider value={{db, auth, user, setUser}}>
+      {children}
+    </FirebaseContext.Provider>
+  );
+};

@@ -1,24 +1,31 @@
 import React, { useState } from "react";
-import { useAuth } from "../hooks";
 import { Redirect } from "react-router-dom";
+import { useAuth } from "../hooks";
+import InterestSelect from "./InterestSelect";
 
 const AuthForm = () => {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [isSignUp, setIsSignUp] = useState(false);
-  const { user, loading, error, signIn, signUp, logOut } = useAuth();
+  const [isCreatingNewUser, setIsCreatingNewUser] = useState(false);
+  const [interests, setInterests] = useState();
+  const { user, loading, error, signIn, signUp } = useAuth();
 
   const toggleIsSignUp = () => setIsSignUp(s => !s);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    isSignUp
-      ? signUp(emailInput, passwordInput)
-      : signIn(emailInput, passwordInput);
-
-    setEmailInput("");
-    setPasswordInput("");
+    if (isSignUp && !isCreatingNewUser) { // toggle interest select
+      // TODO: check if email exists
+      setIsCreatingNewUser(true);
+    } else if (isCreatingNewUser) { // complete sign up
+      signUp(emailInput, interests, passwordInput);
+    } else { // sign in
+      signIn(emailInput, passwordInput);
+      setEmailInput("");
+      setPasswordInput("");
+    }
   };
 
   const handleChange = e => {
@@ -52,32 +59,38 @@ const AuthForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        E-mail:
-        <input
-          name="email"
-          value={emailInput}
-          onChange={handleChange}
-          type="email"
-          required
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          name="password"
-          value={passwordInput}
-          onChange={handleChange}
-          type="password"
-          required
-        />
-      </label>
+      <div hidden={isSignUp && isCreatingNewUser}>
+        <label>
+          E-mail:
+          <input
+            name="email"
+            value={emailInput}
+            onChange={handleChange}
+            type="email"
+            required
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            name="password"
+            value={passwordInput}
+            onChange={handleChange}
+            type="password"
+            required
+          />
+        </label>
+      </div>
 
-      <button type="submit">{isSignUp ? "Sign up" : "Log in"}</button>
+      <InterestSelect onChange={setInterests} hidden={!isSignUp || !isCreatingNewUser} />
 
-      <button onClick={toggleIsSignUp} type="button">
-        {isSignUp ? "Already have an account?" : "Don't have an account?"}
-      </button>
+      <button type="submit">{isSignUp ? isCreatingNewUser ? "Sign up" : "Select interests" : "Log in"}</button>
+
+      {!isCreatingNewUser && (
+        <button onClick={toggleIsSignUp} type="button">
+          {isSignUp ? "Already have an account?" : "Don't have an account?"}
+        </button>
+      )}
     </form>
   );
 };
