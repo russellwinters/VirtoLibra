@@ -59,7 +59,7 @@ const AuthForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div hidden={!isSignUp && isCreatingNewUser}>
+      <div hidden={isSignUp && isCreatingNewUser}>
         <label>
           E-mail:
           <input
@@ -86,9 +86,11 @@ const AuthForm = () => {
 
       <button type="submit">{isSignUp ? isCreatingNewUser ? "Sign up" : "Select interests" : "Log in"}</button>
 
-      <button onClick={toggleIsSignUp} type="button">
-        {isSignUp ? "Already have an account?" : "Don't have an account?"}
-      </button>
+      {!isCreatingNewUser && (
+        <button onClick={toggleIsSignUp} type="button">
+          {isSignUp ? "Already have an account?" : "Don't have an account?"}
+        </button>
+      )}
     </form>
   );
 };
