@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+const APIkey = process.env.REACT_APP_NYT_API;
 
 const GetGenreList = () => {
   const [data, setData] = useState(null);
@@ -10,7 +11,7 @@ const GetGenreList = () => {
     setLoading(true);
     axios
       .get(
-        "https://api.nytimes.com/svc/books/v3/lists/overview.json?&api-key=u80Uoj6gcmvGVb0vO3eQRqpbITkdcggN"
+        `https://api.nytimes.com/svc/books/v3/lists/overview.json?&api-key=${APIkey}`
       )
       .then(res => setData(res.data.results.lists))
 
