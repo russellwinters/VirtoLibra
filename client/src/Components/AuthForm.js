@@ -17,11 +17,10 @@ const AuthForm = () => {
     e.preventDefault();
 
     if (isSignUp && !isCreatingNewUser) { // toggle interest select
+      // TODO: check if email exists
       setIsCreatingNewUser(true);
     } else if (isCreatingNewUser) { // complete sign up
-      // add interests
-      console.log(interests)
-      // signUp(emailInput, passwordInput);
+      signUp(emailInput, interests, passwordInput);
     } else { // sign in
       signIn(emailInput, passwordInput);
       setEmailInput("");
