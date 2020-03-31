@@ -14,5 +14,25 @@ export const useUserInterests = () => {
       });
   };
 
-  return {interests, createUserData};
+  const updateUserData = (email, interests) => {
+    setInterests(interests);
+    return db
+      .collection("users")
+      .where("email", "==", email)
+      .get()
+      .then(snapshot => {
+        snapshot.forEach(user => { // only 1 should match
+          return db.collection("users").doc(user.id)
+            .set({
+              interests,
+            }, {
+              merge: true,
+            })
+            .then(() => alert("Interests succesfully updated!"));
+        })
+      });
+
+  };
+
+  return {interests, createUserData, updateUserData};
 };

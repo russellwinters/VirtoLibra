@@ -3,19 +3,20 @@ import { FirebaseContext } from "../context/firebase";
 import { useUserInterests } from "./useUserInterests";
 
 export const useAuth = () => {
-  const { auth } = useContext(FirebaseContext);
+  const { auth, user, setUser } = useContext(FirebaseContext);
   const [loading, setLoading] = useState(false);
-  const [user, setUser] = useState();
   const [error, setError] = useState();
   const {createUserData} = useUserInterests();
 
   const signUpWithEmailAndPassword = (email, interests = [], password) => {
     setLoading(true);
-    createUserData(email, interests)
-      .catch(setError); // TODO: handle error
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(({ user }) => setUser(user))
+      .then(({ user }) => {
+        createUserData(email, interests)
+          .then(() => setUser(user))
+          .catch(setError); // TODO: handle error
+      })
       .catch(setError)
       .finally(() => setLoading(false));
   };
