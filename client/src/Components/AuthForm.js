@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useAuth } from "../hooks";
 import { Redirect } from "react-router-dom";
-import { InterestSelect } from "./InterestSelect";
+import { useAuth } from "../hooks";
+import InterestSelect from "./InterestSelect";
 
 const AuthForm = () => {
   const [emailInput, setEmailInput] = useState("");

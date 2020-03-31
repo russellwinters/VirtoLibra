@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GetGenreList } from "../hooks";
 
-export const InterestSelect = ({onChange, ...props}) => {
+const InterestSelect = ({onChange, ...props}) => {
   const { data, error, loading } = GetGenreList();
   const [interests, setInterests] = useState([]);
 
@@ -46,3 +46,5 @@ export const InterestSelect = ({onChange, ...props}) => {
     </fieldset>
   );
 };
+
+export default InterestSelect;
