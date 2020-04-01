@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { highlight, bg, dark } from "../Styles/colors";
+import { bg } from "../Styles/colors";
 import logo from "../assets/logo.svg";
 import Button from "./Button";
 

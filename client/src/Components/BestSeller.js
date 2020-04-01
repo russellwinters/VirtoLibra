@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useBooks } from "../hooks";
+import Button from "./Button";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -14,16 +15,16 @@ const Container = styled.div`
 const StyledList = styled.li`
   list-style: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   margin: 15px;
   align-text: left;
   & header {
-    width: 60vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    botton-margin:20px;
+    margin-bottom:10px;
     & h1 {
       
       font-size: 20px;
@@ -43,6 +44,12 @@ const StyledList = styled.li`
     vertical-align: top;
   }
   }
+`;
+const ButtonDiv = styled.div`
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 const BestSeller = ({ match }) => {
@@ -89,22 +96,21 @@ const BestSeller = ({ match }) => {
               amazon_product_url
             }) => (
               <StyledList key={primary_isbn13}>
-                <div>
-                  <header>
-                    <h1>
-                      {rank}. {title}
-                    </h1>
-                    <h2>{author}</h2>
-                  </header>
+                <header>
+                  <h1>
+                    {rank}. {title}
+                  </h1>
+                  <h2>{author}</h2>
+                </header>
 
-                  <p>{description}</p>
-                </div>
-                <button>Reviews</button>
-                <button>
+                <p>{description}</p>
+
+                <ButtonDiv>
+                  <Button>Reviews</Button>
                   <a href={amazon_product_url} target="_blank">
-                    Purchase here
+                    <Button>Purchase here</Button>
                   </a>
-                </button>
+                </ButtonDiv>
               </StyledList>
             )
           )}
