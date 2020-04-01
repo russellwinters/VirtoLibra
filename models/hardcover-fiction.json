@@ -3,9 +3,11 @@
     "genre": "hardcover-fiction",
     "feed": [
       { "book": "Where the Crawdads Sing", "post": "This was an awesome book" },
+      { "book": "American Dirt", "post": "Very funny - would recommend" },
       {
-        "book": "American Dirt",
-        "post": "Very funny - would recommend"
+        "book": "The Mirror & the Light",
+        "post": "This was a thriller!!!",
+        "author": "Russell"
       }
     ]
   }
