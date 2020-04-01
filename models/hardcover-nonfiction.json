@@ -1,0 +1,12 @@
+[
+  {
+    "genre": "hardcover-nonfiction",
+    "feed": [
+      { "book": "Untamed", "post": "This was an awesome book" },
+      {
+        "book": "The Mamba Mentality",
+        "post": "Very funny - would recommend"
+      }
+    ]
+  }
+]

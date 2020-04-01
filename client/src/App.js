@@ -3,7 +3,7 @@ import Header from "./Components/Header";
 import Background from "./Components/Background";
 import Content from "./Components/Content";
 import { FirebaseProvider } from "./context";
-// import FirebaseExample from "./Components/FirebaseExample";
+import FirebaseExample from "./Components/FirebaseExample";
 import BestSeller from "./Components/BestSeller";
 import GenreList from "./Components/GenreList";
 import AuthForm from "./Components/AuthForm";
@@ -42,7 +42,7 @@ function App() {
                     <AuthBoundary>
                       <Content>
                         <GenreList />
-
+                        <FirebaseExample match={match} />
                         <BestSeller match={match} />
                       </Content>
                     </AuthBoundary>

@@ -1,0 +1,31 @@
+{
+  "name": "VirtoLibra",
+  "version": "1.0.0",
+  "description": "Initial plan is to make a slack-style platform to engage with the reading community around you.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russellwinters/VirtoLibra.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russellwinters/VirtoLibra/issues"
+  },
+  "homepage": "https://github.com/russellwinters/VirtoLibra#readme",
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "genre": "combined-print-and-e-book-fiction",
+    "feed": [
+      { "book": "The Boy From the Woods", "post": "This was an awesome book" },
+      {
+        "book": "Smoke Bitten",
+        "post": "I really loved this book. It far surpassed my expectations"
+      }
+    ]
+  }
+]
