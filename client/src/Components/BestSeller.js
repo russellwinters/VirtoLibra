@@ -67,7 +67,6 @@ const BestSeller = ({ match }) => {
           `https://api.nytimes.com/svc/books/v3/lists/current/${match.params.genre}.json?api-key=${APIkey}`
         )
         .then(response => {
-          console.log(response.data);
           setBookList(response.data);
         });
     }
@@ -80,13 +79,13 @@ const BestSeller = ({ match }) => {
   // );
 
   //changed the key from rank to primary_isbn13 because the rank will change weekly but the primary_isbn13 will remain.
-  return (
-    <Container>
-      {!bookList ? (
-        "loading..."
-      ) : (
-        <>
-          <h1>NYT Best Sellers {bookList.results.list_name}</h1>
+  if (bookList !== null) {
+    return (
+      <Container>
+        <h1>NYT Best Sellers {bookList.results.list_name}</h1>
+        {!bookList ? (
+          "loading..."
+        ) : (
           <ul>
             {bookList.results.books.map(
               ({
@@ -116,10 +115,12 @@ const BestSeller = ({ match }) => {
               )
             )}
           </ul>
-        </>
-      )}
-    </Container>
-  );
+        )}
+      </Container>
+    );
+  } else {
+    return <h1>Loading</h1>;
+  }
 };
 
 export default BestSeller;

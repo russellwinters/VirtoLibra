@@ -56,7 +56,7 @@ const AuthForm = () => {
     localStorage.setItem("email", user.email);
     return (
       <>
-        <Redirect to="/dashboard" />
+        <Redirect to="/dashboard/combined-print-and-e-book-fiction" />
       </>
     );
   }
