@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Container = styled.div`
   display: flex;
+
   flex-direction: column;
   & h1 {
     font-family: mainFont;
@@ -49,7 +50,7 @@ const ButtonDiv = styled.div`
   display: flex;
   margin-top: 10px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 const BestSeller = ({ match }) => {
@@ -106,7 +107,6 @@ const BestSeller = ({ match }) => {
                   <p>{description}</p>
 
                   <ButtonDiv>
-                    <Button>Reviews</Button>
                     <a href={amazon_product_url} target="_blank">
                       <Button>Purchase here</Button>
                     </a>
