@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { useAuth } from "../hooks";
 import InterestSelect from "./InterestSelect";
+import Button from "./Button";
 
 const AuthForm = () => {
   const [emailInput, setEmailInput] = useState("");
@@ -91,20 +92,21 @@ const AuthForm = () => {
         onChange={setInterests}
         hidden={!isSignUp || !isCreatingNewUser}
       />
+      <div className="auth_button_div">
+        <Button type="submit">
+          {isSignUp
+            ? isCreatingNewUser
+              ? "Sign up"
+              : "Select interests"
+            : "Log in"}
+        </Button>
 
-      <button type="submit">
-        {isSignUp
-          ? isCreatingNewUser
-            ? "Sign up"
-            : "Select interests"
-          : "Log in"}
-      </button>
-
-      {!isCreatingNewUser && (
-        <button onClick={toggleIsSignUp} type="button">
-          {isSignUp ? "Already have an account?" : "Don't have an account?"}
-        </button>
-      )}
+        {!isCreatingNewUser && (
+          <Button onClick={toggleIsSignUp} type="button">
+            {isSignUp ? "Already have an account?" : "Don't have an account?"}
+          </Button>
+        )}
+      </div>
     </form>
   );
 };
