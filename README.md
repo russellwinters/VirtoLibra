@@ -25,7 +25,7 @@ Our workflow is organized through Trello and Slack.
 - Lizzy Swann
 - Russell
 - William L
-- Roerto
+- Roberto
 - Matty
 
 ### Firebase:
