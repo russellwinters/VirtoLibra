@@ -4,14 +4,17 @@ Initial plan is to make a slack-style platform to engage with the reading commun
 
 ### Tech Stack
 
-For this project we're using React and storing all necessary information in Firebase.
-Our workflow is organized through Trello and Slack
+For this project we're using React for our client.
+We store all user information in Firebase.
+After some technical issues, we migrated our main feed items to an express server that is simply storing that information in JSON files.
+Our workflow is organized through Trello and Slack.
 
 ### Setup:
 
 - Clone into repo
 - Navigate to client folder and run `npm i`
-- Run `npm start` to open react app.
+- Navigate back to root directory and run `npm i`
+- Run `npm run dev` to start project.
 
 ### Designer(s):
 
@@ -23,7 +26,12 @@ Our workflow is organized through Trello and Slack
 - Russell
 - William L
 - Roerto
+- Matty
 
-### TBD:
+### Firebase:
 
-- Edin Kaymakqi
+- William L
+
+### Express Server:
+
+- Russell
