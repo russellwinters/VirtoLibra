@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function PostToFeed({ match, refresh }) {
+export default function PostToFeed({ match }) {
   const [modalStatus, setModalStatus] = useState(false);
 
   const toggleModal = () => {

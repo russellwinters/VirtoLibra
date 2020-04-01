@@ -17,7 +17,7 @@ export const GetGenreList = () => {
 
       .catch(err => setError(err))
       .finally(() => setLoading(false));
-    console.log("inside GetGenreList", data);
+    // console.log("inside GetGenreList", data);
   }, []);
 
   return { data, error, loading };
