@@ -12,3 +12,14 @@
   box-sizing: border-box;
 }
 /*# sourceMappingURL=main.css.map */
+.auth_input {
+  height: 30px;
+  width: 220px;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+.auth_div {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

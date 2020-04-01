@@ -16,12 +16,15 @@ const AuthForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    if (isSignUp && !isCreatingNewUser) { // toggle interest select
+    if (isSignUp && !isCreatingNewUser) {
+      // toggle interest select
       // TODO: check if email exists
       setIsCreatingNewUser(true);
-    } else if (isCreatingNewUser) { // complete sign up
+    } else if (isCreatingNewUser) {
+      // complete sign up
       signUp(emailInput, interests, passwordInput);
-    } else { // sign in
+    } else {
+      // sign in
       signIn(emailInput, passwordInput);
       setEmailInput("");
       setPasswordInput("");
@@ -59,10 +62,11 @@ const AuthForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div hidden={isSignUp && isCreatingNewUser}>
+      <div className="auth_div" hidden={isSignUp && isCreatingNewUser}>
         <label>
           E-mail:
           <input
+            className="auth_input"
             name="email"
             value={emailInput}
             onChange={handleChange}
@@ -73,6 +77,7 @@ const AuthForm = () => {
         <label>
           Password:
           <input
+            className="auth_input"
             name="password"
             value={passwordInput}
             onChange={handleChange}
@@ -82,9 +87,18 @@ const AuthForm = () => {
         </label>
       </div>
 
-      <InterestSelect onChange={setInterests} hidden={!isSignUp || !isCreatingNewUser} />
+      <InterestSelect
+        onChange={setInterests}
+        hidden={!isSignUp || !isCreatingNewUser}
+      />
 
-      <button type="submit">{isSignUp ? isCreatingNewUser ? "Sign up" : "Select interests" : "Log in"}</button>
+      <button type="submit">
+        {isSignUp
+          ? isCreatingNewUser
+            ? "Sign up"
+            : "Select interests"
+          : "Log in"}
+      </button>
 
       {!isCreatingNewUser && (
         <button onClick={toggleIsSignUp} type="button">
