@@ -22,7 +22,7 @@ const FirebaseExample = ({ match }) => {
   useEffect(() => {
     if (data === null || data.genre !== match.params.genre) {
       axios
-        .get(`http://localhost:5000/api/feed/${match.params.genre}`)
+        .get(`https://virtolibra.herokuapp.com/api/feed/${match.params.genre}`)
         .then(response => {
           setData(response.data.data);
         });

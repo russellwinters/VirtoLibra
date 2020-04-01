@@ -33,7 +33,7 @@ export default function PostToFeed({ match, refresh }) {
 
     axios({
       method: "post",
-      url: `http://localhost:5000/api/feed/${match.params.genre}`,
+      url: `https://virtolibra.herokuapp.com/api/feed/${match.params.genre}`,
       data: newFeedItem
     }).then(response => {
       console.log(response.data);
