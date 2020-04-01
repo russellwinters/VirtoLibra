@@ -6,6 +6,7 @@ import axios from "axios";
 
 const Container = styled.div`
   display: flex;
+
   flex-direction: column;
   & h1 {
     font-family: mainFont;
@@ -49,7 +50,7 @@ const ButtonDiv = styled.div`
   display: flex;
   margin-top: 10px;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
 
 const BestSeller = ({ match }) => {
@@ -81,40 +82,41 @@ const BestSeller = ({ match }) => {
   //changed the key from rank to primary_isbn13 because the rank will change weekly but the primary_isbn13 will remain.
   return (
     <Container>
-      <h1>NYT Best Sellers {match.params.genre}</h1>
       {!bookList ? (
         "loading..."
       ) : (
-        <ul>
-          {bookList.results.books.map(
-            ({
-              rank,
-              title,
-              author,
-              description,
-              primary_isbn13,
-              amazon_product_url
-            }) => (
-              <StyledList key={primary_isbn13}>
-                <header>
-                  <h1>
-                    {rank}. {title}
-                  </h1>
-                  <h2>{author}</h2>
-                </header>
+        <>
+          <h1>NYT Best Sellers {bookList.results.list_name}</h1>
+          <ul>
+            {bookList.results.books.map(
+              ({
+                rank,
+                title,
+                author,
+                description,
+                primary_isbn13,
+                amazon_product_url
+              }) => (
+                <StyledList key={primary_isbn13}>
+                  <header>
+                    <h1>
+                      {rank}. {title}
+                    </h1>
+                    <h2>{author}</h2>
+                  </header>
 
-                <p>{description}</p>
+                  <p>{description}</p>
 
-                <ButtonDiv>
-                  <Button>Reviews</Button>
-                  <a href={amazon_product_url} target="_blank">
-                    <Button>Purchase here</Button>
-                  </a>
-                </ButtonDiv>
-              </StyledList>
-            )
-          )}
-        </ul>
+                  <ButtonDiv>
+                    <a href={amazon_product_url} target="_blank">
+                      <Button>Purchase here</Button>
+                    </a>
+                  </ButtonDiv>
+                </StyledList>
+              )
+            )}
+          </ul>
+        </>
       )}
     </Container>
   );

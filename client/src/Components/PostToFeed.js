@@ -1,6 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Button from "./Button";
+import styled from "styled-components";
 
+const ReviewInputDiv = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+`;
+const ButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+`;
 export default function PostToFeed({ match, refresh }) {
   const [modalStatus, setModalStatus] = useState(false);
 
@@ -32,7 +44,7 @@ export default function PostToFeed({ match, refresh }) {
   const initialInput = (
     <div onClick={toggleModal}>
       <h3>Post your review here</h3>
-      <input type="text" placeholder="review..." />
+      <input className="review_input" type="text" placeholder="review..." />
     </div>
   );
 
@@ -40,19 +52,34 @@ export default function PostToFeed({ match, refresh }) {
     <div>
       <h3>Post your review here</h3>
       <form onSubmit={postReview}>
-        <div>
+        <ReviewInputDiv>
           <label>Reviewer Name:</label>
-          <input type="text" name="author" placeholder="Your Name" />
-        </div>
-        <div>
+          <input
+            className="review_input"
+            type="text"
+            name="author"
+            placeholder="Your Name"
+          />
+
           <label>Book Name:</label>
-          <input type="text" name="book" placeholder="Book Name" />
-        </div>
-        <div>
+          <input
+            className="review_input"
+            type="text"
+            name="book"
+            placeholder="Book Name"
+          />
+
           <label>Review:</label>
-          <input type="text" name="post" placeholder="Thought on the book?" />
-        </div>
-        <button>Submit Review!</button>
+          <input
+            className="review_input"
+            type="text"
+            name="post"
+            placeholder="Thought on the book?"
+          />
+        </ReviewInputDiv>
+        <ButtonDiv>
+          <Button>Submit Review!</Button>
+        </ButtonDiv>
       </form>
       <p>
         Don't want to submit a review?

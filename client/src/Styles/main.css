@@ -39,3 +39,13 @@
 .auth_button_div button {
   margin: 5px;
 }
+.review_input {
+  height: 30px;
+  width: 250px;
+  padding-left: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.review_input:focus {
+  outline: none;
+}

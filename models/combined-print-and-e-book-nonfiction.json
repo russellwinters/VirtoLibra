@@ -1,15 +1,1 @@
-[
-  {
-    "genre": "combined-print-and-e-book-nonfiction",
-    "feed": [
-      {
-        "book": "The Splendid and the Vile",
-        "post": "This was an awesome book"
-      },
-      {
-        "book": "Educated",
-        "post": "Very good book"
-      }
-    ]
-  }
-]
+[{"genre":"combined-print-and-e-book-nonfiction","feed":[{"book":"The Splendid and the Vile","post":"This was an awesome book"},{"book":"Educated","post":"Very good book"},{"book":"Untamed","post":"Very thought provoking","author":"Jenny"},{"book":"Lady in Waiting","post":"SCANDALOUS!!","author":"Linda"}]}]
