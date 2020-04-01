@@ -1,1 +1,14 @@
-[{"genre":"hardcover-nonfiction","feed":[{"book":"Untamed","post":"This was an awesome book"},{"book":"The Mamba Mentality","post":"Very funny - would recommend"},{"book":"Educated","post":"Heard great things, and they were true! Great book.","author":"Russell"}]}]
+[
+  {
+    "genre": "Hardcover Nonfiction",
+    "feed": [
+      { "book": "Untamed", "post": "This was an awesome book" },
+      { "book": "The Mamba Mentality", "post": "Very funny - would recommend" },
+      {
+        "book": "Educated",
+        "post": "Heard great things, and they were true! Great book.",
+        "author": "Russell"
+      }
+    ]
+  }
+]

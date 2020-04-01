@@ -1,1 +1,17 @@
-[{"genre":"series-books","feed":[{"book":"Dog Man","post":"This was an awesome book"},{"book":"Diary of a Wimpy Kid","post":"Very funny - would recommend"},{"book":"Harry Potter","post":"Great thing to do while stuck inside...","author":"Russell"}]}]
+[
+  {
+    "genre": "Series Books",
+    "feed": [
+      { "book": "Dog Man", "post": "This was an awesome book" },
+      {
+        "book": "Diary of a Wimpy Kid",
+        "post": "Very funny - would recommend"
+      },
+      {
+        "book": "Harry Potter",
+        "post": "Great thing to do while stuck inside...",
+        "author": "Russell"
+      }
+    ]
+  }
+]

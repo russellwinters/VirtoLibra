@@ -5,23 +5,21 @@ import PostToFeed from "./PostToFeed";
 
 const FirebaseExample = ({ match }) => {
   const [data, setData] = useState(null);
-  const [submit, setSubmit] = useState(false);
 
   useEffect(() => {
     if (data === null || data.genre !== match.params.genre) {
       axios
         .get(`http://localhost:5000/api/feed/${match.params.genre}`)
         .then(response => {
-          console.log(response.data.data);
           setData(response.data.data);
         });
     }
   });
 
   if (data) {
-    let feed = data.feed.map(post => {
+    let feed = data.feed.map((post, i) => {
       return (
-        <div>
+        <div key={i}>
           <h3>{post.book}</h3>
           <p>{post.author ? `Author: ${post.author}` : ""}</p>
           <p>Review: {post.post}</p>
@@ -29,15 +27,11 @@ const FirebaseExample = ({ match }) => {
       );
     });
 
-    const refreshAfterSubmit = () => {
-      setSubmit(!submit);
-    };
-
     return (
       <section style={{ display: "flex", flexDirection: "column" }}>
         <h1>{data.genre}</h1>
 
-        <PostToFeed match={match} refresh={refreshAfterSubmit} />
+        <PostToFeed match={match} />
         {feed}
       </section>
     );
