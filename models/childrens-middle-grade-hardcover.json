@@ -1,0 +1,12 @@
+[
+  {
+    "genre": "childrens-middle-grade-hardcover",
+    "feed": [
+      { "book": "Wonder", "post": "This was an awesome book" },
+      {
+        "book": "Refugee",
+        "post": "Great book!!"
+      }
+    ]
+  }
+]

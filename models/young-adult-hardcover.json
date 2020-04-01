@@ -1,0 +1,12 @@
+[
+  {
+    "genre": "young-adult-hardcover",
+    "feed": [
+      { "book": "Chain of Gold", "post": "This was an awesome book" },
+      {
+        "book": "Stamped",
+        "post": "Would recommend"
+      }
+    ]
+  }
+]

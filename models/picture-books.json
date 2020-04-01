@@ -1,0 +1,12 @@
+[
+  {
+    "genre": "picture-books",
+    "feed": [
+      { "book": "How to Catch a Unicorn", "post": "This was an awesome book" },
+      {
+        "book": "Waiting is not Easy!",
+        "post": "Great book for the kids"
+      }
+    ]
+  }
+]

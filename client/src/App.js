@@ -42,7 +42,7 @@ function App() {
                     <AuthBoundary>
                       <Content>
                         <GenreList />
-                        <FirebaseExample />
+                        <FirebaseExample match={match} />
                         <BestSeller match={match} />
                       </Content>
                     </AuthBoundary>

@@ -1,47 +1,40 @@
-import React from "react";
-import { useRoom, useRooms } from "../hooks";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import ReviewsListItem from "./ReviewsListItem";
 
-const MessageList = ({ id }) => {
-  const messages = useRoom(id);
+const FirebaseExample = ({ match }) => {
+  const [data, setData] = useState(null);
 
-  if (!messages) return <p>loading messages...</p>;
+  useEffect(() => {
+    if (data === null || data.genre !== match.params.genre) {
+      axios
+        .get(`http://localhost:5000/api/feed/${match.params.genre}`)
+        .then(response => {
+          console.log(response.data.data);
+          setData(response.data.data);
+        });
+    }
+  });
 
-  return (
-    <ul>
-      {messages.map(({ id, message, author, book_title, book_author }) => (
-        <li key={id}>
-          <p>
-            {book_title} by {book_author}
-          </p>
+  if (data) {
+    let feed = data.feed.map(post => {
+      return (
+        <div>
+          <h3>{post.book}</h3>
+          <p>{post.post}</p>
+        </div>
+      );
+    });
 
-          <p>
-            {author}: {message}{" "}
-          </p>
-        </li>
-      ))}
-    </ul>
-  );
+    return (
+      <section style={{ display: "flex", flexDirection: "column" }}>
+        <h1>{data.genre}</h1>
+        {feed}
+      </section>
+    );
+  } else {
+    return <h1>Loading...</h1>;
+  }
 };
-
-const RoomList = () => {
-  const rooms = useRooms();
-  console.log(rooms);
-
-  if (!rooms) return <p>loading rooms...</p>;
-
-  return (
-    <ul>
-      {rooms.map(({ id }) => (
-        <ReviewsListItem key={id}>
-          Room: {id}
-          <MessageList id={id} />
-        </ReviewsListItem>
-      ))}
-    </ul>
-  );
-};
-
-const FirebaseExample = () => <RoomList />;
 
 export default FirebaseExample;

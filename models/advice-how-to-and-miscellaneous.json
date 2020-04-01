@@ -1,0 +1,12 @@
+[
+  {
+    "genre": "advice-how-to-and-miscellaneous",
+    "feed": [
+      { "book": "Find Your Path", "post": "This was an awesome book" },
+      {
+        "book": "The Subtle Art of Not Giving a F*uck",
+        "post": "Very funny - would recommend"
+      }
+    ]
+  }
+]
