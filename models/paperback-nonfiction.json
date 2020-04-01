@@ -3,10 +3,8 @@
     "genre": "paperback-nonfiction",
     "feed": [
       { "book": "The Great Influenza", "post": "Very fitting for today..." },
-      {
-        "book": "Sapiens",
-        "post": "Call it history?"
-      }
+      { "book": "Sapiens", "post": "Call it history?" },
+      { "book": "Born a Crime", "post": "this was an amazing book" }
     ]
   }
 ]
